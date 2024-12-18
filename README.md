@@ -33,4 +33,72 @@ public class ApiExample {
         }
     }
 }
+```
+### 2. Sending a Post Request
+
+```java
+import utils.ApiClient;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import java.io.IOException;
+
+public class ApiExample {
+    public static void main(String[] args) {
+        String url = "https://api.example.com/submit";
+        String payload = "{\"key\":\"value\"}";  // Your JSON payload
+
+        try {
+            JSONObject response = ApiClient.post(url, payload);
+            System.out.println(response);
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 3. Sending a Put Request
+
+```java
+import utils.ApiClient;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import java.io.IOException;
+
+public class ApiExample {
+    public static void main(String[] args) {
+        String url = "https://api.example.com/update";
+        String payload = "{\"key\":\"updated_value\"}";  // Your JSON payload
+
+        try {
+            JSONObject response = ApiClient.put(url, payload);
+            System.out.println(response);
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+
+### 3. Sending a Delete Request
+```java
+import utils.ApiClient;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import java.io.IOException;
+
+public class ApiExample {
+    public static void main(String[] args) {
+        String url = "https://api.example.com/delete/1";  // ID of the resource to delete
+
+        try {
+            JSONObject response = ApiClient.delete(url);
+            System.out.println(response);
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 
